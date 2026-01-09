@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* 基本选项 */
+    "target": "ES2020",                          /* 指定ECMAScript目标版本 */
+    "module": "commonjs",                       /* 指定模块代码生成方式 */
+    "lib": ["ES2021", "DOM"],                  /* 指定要包含在编译中的库文件 */
+    "outDir": "./dist",                        /* 编译输出目录 */
+    "rootDir": "./src",                        /* 源文件根目录 */
+    "strict": true,                              /* 启用所有严格类型检查选项 */
+    "esModuleInterop": true,                     /* 启用ES模块interop */
+    "skipLibCheck": true,                        /* 跳过声明文件检查 */
+    "forceConsistentCasingInFileNames": true,    /* 强制文件名大小写一致 */
+
+    /* 装饰器选项 */
+    "experimentalDecorators": true,              /* 启用装饰器 */
+    "emitDecoratorMetadata": true,               /*  emit设计类型元数据 */
+
+    /* 类型声明选项 */
+    "declaration": true,                         /* 生成声明文件 */
+    "declarationMap": true,                      /* 为声明文件生成源映射 */
+    "sourceMap": true,                           /* 生成源映射文件 */
+
+    /* 高级选项 */
+    "resolveJsonModule": true,                   /* 允许导入JSON模块 */
+    "isolatedModules": true,                     /* 将每个文件作为单独的模块编译 */
+    "noEmitOnError": true                        /* 编译错误时不生成输出 */
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
