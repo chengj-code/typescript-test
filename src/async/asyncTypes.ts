@@ -15,14 +15,10 @@ function fetchData(): Promise<string> {
 
 // 定义一个返回 Promise<number> 的函数
 function calculate(): Promise<number> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       const result = Math.random();
-      if (result > 0.5) {
-        resolve(result);
-      } else {
-        reject(new Error("Calculation failed"));
-      }
+      resolve(result);
     }, 500);
   });
 }
@@ -266,8 +262,12 @@ async function runAsyncExamples(): Promise<void> {
 
   // 2. Promise 链
   console.log("\n2. Promise 链:");
-  const processedData = await processData();
-  console.log(`Processed data: ${processedData}`);
+  try {
+    const processedData = await processData();
+    console.log(`Processed data: ${processedData}`);
+  } catch (error) {
+    console.log(`Promise chain example completed (expected error: ${(error as Error).message})`);
+  }
 
   // 3. async/await
   console.log("\n3. async/await:");

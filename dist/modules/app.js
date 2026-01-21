@@ -4,7 +4,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initializeApp = initializeApp;
 // 导入装饰器示例
-const decorators_1 = require("../decorators");
+const index_1 = require("../decorators/index");
 // 导入模块系统示例
 const moduleExample_1 = require("./moduleExample");
 const namespaceExample_1 = require("./namespaceExample");
@@ -31,7 +31,7 @@ function initializeApp() {
     runGenericsExample();
     runEnumsExample();
     runTypeGuardsExample();
-    (0, decorators_1.runDecoratorExamples)();
+    (0, index_1.runDecoratorExamples)();
     runModuleSystemExample();
     runNamespaceExample();
     (0, asyncTypes_1.runAsyncExamples)();

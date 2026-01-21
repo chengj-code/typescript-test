@@ -62,6 +62,49 @@ function logMessage(message: string): void {
 function throwError(message: string): never {
   throw new Error(message);
 }
+// 元组的高级特性
+// 1、可选元素 ：
+type OptionalTuple = [string, number?]; // 第二个元素可选
+const optional: OptionalTuple = ["Alice"]; // ✅
+const optionalWithAge: OptionalTuple = ["Bob", 30]; // ✅
+// 2、剩余元素
+type RestTuple = [string, ...number[]]; // 第一个元素是字符串，后面是任意数量的数字
+const restTuple: RestTuple = ["first", 1, 2, 3]; // ✅
+// 3、固定长度的元组
+type FixedLengthTuple = [number, number, number]; // 必须有三个数字
+const fixedLength: FixedLengthTuple = [1, 2, 3]; // ✅
+// 4、只读元组
+type ReadonlyTuple = readonly [string, number]; // 只读，不能修改
+const readonlyTuple: ReadonlyTuple = ["read", 42]; // ✅
+// 5、元组的解构赋值
+const [name, ageFromTuple] = userInfo; // name: "Alice", ageFromTuple: 30
+// 6、元组的类型断言
+const mixedArray: (string | number)[] = ["hello", 123, "world"];
+const stringTuple = mixedArray as [string, number, string]; // 断言为元组类型
+// 7、元组的映射类型
+type MappedTuple<T extends any[]> = {
+  [P in keyof T]: T[P];
+};
+// 数组的高级特性
+// 1、泛型数组 ：
+type GenericArray<T> = T[];
+const stringArray: GenericArray<string> = ["a", "b"];
+const numberArray: GenericArray<number> = [1, 2];
+// 2、只读数组 ：
+type ReadonlyArray<T> = readonly T[];
+const readonlyStringArray: ReadonlyArray<string> = ["a", "b"];
+// 3、数组的映射类型
+type MappedArray<T extends any[]> = {
+  [P in keyof T]: T[P];
+};
+// 4、数组的解构赋值
+const [first, second, ...rest] = numbers; // first: 1, second: 2, rest: [3, 4, 5]
+// 5、数组的类型断言
+const mixedArray2: (string | number)[] = ["hello", 123, "world"];
+const stringArray2 = mixedArray2 as string[]; // 断言为字符串数组
+// 联合类型数组 ：
+type MixedArray = (string | number | boolean)[];
+const mixed: MixedArray = ["a", 1, true]; // ✅
 
 // 导出示例供其他模块使用
 export {

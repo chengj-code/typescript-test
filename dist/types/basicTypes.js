@@ -46,4 +46,23 @@ function logMessage(message) {
 function throwError(message) {
     throw new Error(message);
 }
+const optional = ["Alice"]; // ✅
+const optionalWithAge = ["Bob", 30]; // ✅
+const restTuple = ["first", 1, 2, 3]; // ✅
+const fixedLength = [1, 2, 3]; // ✅
+const readonlyTuple = ["read", 42]; // ✅
+// 5、元组的解构赋值
+const [name, ageFromTuple] = userInfo; // name: "Alice", ageFromTuple: 30
+// 6、元组的类型断言
+const mixedArray = ["hello", 123, "world"];
+const stringTuple = mixedArray; // 断言为元组类型
+const stringArray = ["a", "b"];
+const numberArray = [1, 2];
+const readonlyStringArray = ["a", "b"];
+// 4、数组的解构赋值
+const [first, second, ...rest] = numbers; // first: 1, second: 2, rest: [3, 4, 5]
+// 5、数组的类型断言
+const mixedArray2 = ["hello", 123, "world"];
+const stringArray2 = mixedArray2; // 断言为字符串数组
+const mixed = ["a", 1, true]; // ✅
 //# sourceMappingURL=basicTypes.js.map
